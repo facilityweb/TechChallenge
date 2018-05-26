@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
+using Autofac;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
+using TechChallengeIgor.Domain;
 
 namespace TechChallengeIgor.Test
 {
@@ -13,27 +18,43 @@ namespace TechChallengeIgor.Test
             container = ContainerConfig.Configure();
         }
         [TestMethod]
-        public async Task ConsultaArquivosWebApiTestAsync()
+        public async Task GetRepositoriesJsWebApiTestAsync()
         {
-            using (var scope = container.BeginLifetimeScope())
+            var baseAddress = new Uri("https://api.github.com");
+
+            using (var client = new HttpClient() { BaseAddress = baseAddress })
             {
-                var usuario = await TestHelper.LogarAPIAsync();
+                client.DefaultRequestHeaders.Add("User-Agent", "TechChallengeIgor");
+                var response = await client.GetAsync($"search/repositories?q=language:JavaScript&sort=stars&page=1&per_page=999");
 
-                var baseAddress = new Uri("http://cloud02.prima.net.br:26074");
-                
-                using (var client = new HttpClient() { BaseAddress = baseAddress })
-                {
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    client.DefaultRequestHeaders.Add("token", "123");
-                    cookieContainer.Add(baseAddress, new Cookie("ASP.NET_SessionId", usuario.CookieSistema));
+                if (!response.IsSuccessStatusCode)
+                    Assert.Fail();
 
-                    var response = await client.GetAsync($"sg_mobile/ClienteService.svc/GetListaArquivosAluno?codigo={55}&datainicial=01/01/2016&dataFinal=31/12/2018&qc=0&turma=0");
+                var json = await response.Content.ReadAsStringAsync();
 
-                    var json = await response.Content.ReadAsStringAsync();
-                    IList<DisciplinaArquivo> arquivos = JsonConvert.DeserializeObject<IList<DisciplinaArquivo>>(await response.Content.ReadAsStringAsync());
+                GitHubRespItem item = JsonConvert.DeserializeObject<GitHubRespItem>(await response.Content.ReadAsStringAsync());
 
-                    Assert.AreNotEqual(0, arquivos.Count);
-                }
+                Assert.AreNotEqual(null, item);
+            }
+        }
+        [TestMethod]
+        public async Task GetPullRequestsJsWebApiTestAsync()
+        {
+            var baseAddress = new Uri("https://api.github.com");
+
+            using (var client = new HttpClient() { BaseAddress = baseAddress })
+            {
+                client.DefaultRequestHeaders.Add("User-Agent", "TechChallengeIgor");
+                var response = await client.GetAsync($"repos/freeCodeCamp/freeCodeCamp/pulls");
+
+                if (!response.IsSuccessStatusCode)
+                    Assert.Fail();
+
+                var json = await response.Content.ReadAsStringAsync();
+
+                IList<PullRequestItem> itens = JsonConvert.DeserializeObject<IList<PullRequestItem>>(await response.Content.ReadAsStringAsync());
+
+                Assert.AreNotEqual(0, itens.Count);
             }
         }
     }
