@@ -2,6 +2,7 @@
 using TechChallengeIgor.Domain;
 using TechChallengeIgor.Domain.Interfaces;
 using TechChallengeIgor.Infra;
+using TechChallengeIgor.ViewModels;
 
 namespace TechChallengeIgor.IOC
 {
@@ -11,6 +12,7 @@ namespace TechChallengeIgor.IOC
         {
             builder.RegisterType<GitHubDomainService>().As<IGitHubDomainService>().InstancePerDependency();
             builder.RegisterModule<InfraModule>();
+            builder.RegisterType<MainPageViewModel>().InstancePerDependency();
             base.Load(builder);
         }
     }

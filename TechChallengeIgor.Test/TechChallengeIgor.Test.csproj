@@ -73,6 +73,7 @@
     <Compile Include="ConnectivityInfomationTest.cs" />
     <Compile Include="ContainerConfig.cs" />
     <Compile Include="GitHubDomainTest.cs" />
+    <Compile Include="BaseViewModelTest.cs" />
     <Compile Include="WebApiTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
