@@ -12,4 +12,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\TechChallengeIgor.Infra\TechChallengeIgor.Infra.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="VIewCells\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
 </Project>

@@ -51,6 +51,7 @@ namespace TechChallengeIgor.Domain
         public string downloads_url { get; set; }
         public string issues_url { get; set; }
         public string pulls_url { get; set; }
+        public string pulls_formated_url { get { return this.pulls_url.Replace("{/number}", ""); } }
         public string milestones_url { get; set; }
         public string notifications_url { get; set; }
         public string labels_url { get; set; }
