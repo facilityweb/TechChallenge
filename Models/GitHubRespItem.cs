@@ -6,10 +6,10 @@ namespace TechChallengeIgor.Domain
     {
         public int total_count { get; set; }
         public bool incomplete_results { get; set; }
-        public Item[] items { get; set; }
+        public HubItem[] items { get; set; }
     }
 
-    public class Item
+    public class HubItem
     {
         public int id { get; set; }
         public string name { get; set; }

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechChallengeIgor.VIewCells.RepositoriesViewCell">
+    <ViewCell.View>
+        <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Vertical">
+                <Label Text="Repository Name" FontSize="Medium" TextColor="Blue"/>
+                <Label Text="odas estas questões, devidamente ponderadas, levantam dúvidas 
+                       sobre se a expansão dos mercados mundiais nos obriga à análise do 
+                       remanejamento dos quadros funcionais." FontSize="Small" TextColor="Gray"/>
+                <Label x:Name="lblQuantity" Text="*562 *48" />
+            </StackLayout>
+            <StackLayout Orientation="Vertical">
+                <Image Source="http://beritnegociosimobiliarios.com.br/globals/images/empty-user.png"/>
+                <Label Text="UserNAme" FontSize="Small" TextColor="Blue"/>
+                <Label Text="Name lastName" TextColor="Gray" />
+            </StackLayout>
+        </StackLayout>
+    </ViewCell.View>
+</ViewCell>

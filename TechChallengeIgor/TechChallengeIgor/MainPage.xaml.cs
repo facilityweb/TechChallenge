@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TechChallengeIgor.Infra;
+using TechChallengeIgor.VIewCells;
 using TechChallengeIgor.ViewModels;
 using Xamarin.Forms;
 
@@ -17,12 +18,14 @@ namespace TechChallengeIgor
 		{
 			InitializeComponent();
             viewModel = AppContainer.Container.Resolve<MainPageViewModel>();
-            viewModel.TryAgainCommand = new Command(() => viewModel.GetItens());
+            viewModel.TryAgainCommand = new Command(() => viewModel.GetItensAsync());
+            lstView.ItemTemplate = new DataTemplate(() => new RepositoriesViewCell());
             this.BindingContext = viewModel;
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            this.viewModel.GetItensAsync();
         }
     }
 }

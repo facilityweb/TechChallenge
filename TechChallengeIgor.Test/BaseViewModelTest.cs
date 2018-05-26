@@ -55,7 +55,7 @@ namespace TechChallengeIgor.Test
                 var domainService = new Mock<IGitHubDomainService>();
                 domainService.Setup(x => x.GetGitHubMostPopularJavascriptRepositorys(999)).Throws(new Exception());
                 var viewModel = scope.Resolve<MainPageViewModel>(new NamedParameter("gitHubDomainService", domainService.Object));
-                viewModel.GetItens();
+                viewModel.GetItensAsync();
                 Assert.AreEqual(true, viewModel.IsError);
                 Assert.AreEqual(SystemInfra.DefaultMessage, viewModel.ErrorMessage);
             }
@@ -68,7 +68,7 @@ namespace TechChallengeIgor.Test
                 var domainService = new Mock<IGitHubDomainService>();
                 domainService.Setup(x => x.GetGitHubMostPopularJavascriptRepositorys(999)).Throws(new NoConectivityException());
                 var viewModel = scope.Resolve<MainPageViewModel>(new NamedParameter("gitHubDomainService", domainService.Object));
-                viewModel.GetItens();
+                viewModel.GetItensAsync();
                 Assert.AreEqual(true, viewModel.IsError);
                 Assert.AreEqual(SystemInfra.NoConectivityErrorMessage, viewModel.ErrorMessage);
             }
@@ -81,7 +81,7 @@ namespace TechChallengeIgor.Test
                 var domainService = new Mock<IGitHubDomainService>();
                 domainService.Setup(x => x.GetGitHubMostPopularJavascriptRepositorys(SystemInfra.MaxNumberOfRepositorys)).Throws(new NoConectivityException());
                 var viewModel = scope.Resolve<MainPageViewModel>(new NamedParameter("gitHubDomainService", domainService.Object));
-                viewModel.GetItens();
+                viewModel.GetItensAsync();
                 Assert.AreEqual(false, viewModel.IsLoading);
             }
         }

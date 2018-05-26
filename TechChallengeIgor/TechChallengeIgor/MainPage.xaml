@@ -5,9 +5,10 @@
              x:Class="TechChallengeIgor.MainPage">
 
     <StackLayout>
-        <!-- Place new controls here -->
-    	<Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <ScrollView MinimumHeightRequest="150">
+            <ListView x:Name="lstView" ItemsSource="{Binding ItensList}" 
+                          HasUnevenRows="True" SelectedItem="{Binding LancamentoSelecionado, Mode=TwoWay}">
+            </ListView>
+        </ScrollView>
     </StackLayout>
 </ContentPage>
