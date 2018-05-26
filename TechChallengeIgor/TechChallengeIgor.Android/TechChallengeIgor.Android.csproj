@@ -59,6 +59,7 @@
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="27.0.2" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DependencyServices\Connectivity_Android.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,6 +95,10 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Models\TechChallengeIgor.Domain.csproj">
+      <Project>{71AAD735-F842-405B-A959-EF67BDDFD770}</Project>
+      <Name>TechChallengeIgor.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TechChallengeIgor\TechChallengeIgor.csproj">
       <Project>{033330CA-3E4C-4DAB-A33E-7747BDD9A7DF}</Project>
       <Name>TechChallengeIgor</Name>

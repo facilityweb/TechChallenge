@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
+﻿using Autofac;
 using Foundation;
+using TechChallengeIgor.Domain.Interfaces;
+using TechChallengeIgor.iOS.DependencyServices;
 using UIKit;
 
 namespace TechChallengeIgor.iOS
@@ -23,9 +22,15 @@ namespace TechChallengeIgor.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            LoadApplication(new App(new AppSetup(CreateContainer())));
 
             return base.FinishedLaunching(app, options);
+        }
+        private ContainerBuilder CreateContainer()
+        {
+            var containerBuilder = new ContainerBuilder();
+            containerBuilder.RegisterType<Connectivity_IOS>().As<IConnectivityInfomation>().InstancePerDependency();
+            return containerBuilder;
         }
     }
 }
