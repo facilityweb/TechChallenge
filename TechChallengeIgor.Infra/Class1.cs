@@ -2,7 +2,7 @@
 
 namespace TechChallengeIgor.Domain
 {
-    public class AppContainer
+    public class Class1
     {
     }
 }
