@@ -26,6 +26,7 @@ namespace TechChallengeIgor
             viewModel.TryAgainCommand = new Command(async () => await viewModel.GetPullRequests());
             lstView.ItemTemplate = new DataTemplate(() => new PullRequestsViewCell());
             lstView.ItemSelected += LstView_ItemSelected;
+            OpeningText.TextColor = Color.FromHex("#e19a17");
             this.BindingContext = viewModel;
         }
 

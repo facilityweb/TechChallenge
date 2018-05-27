@@ -74,6 +74,7 @@
     <Compile Include="ContainerConfig.cs" />
     <Compile Include="GitHubDomainTest.cs" />
     <Compile Include="BaseViewModelTest.cs" />
+    <Compile Include="SearchResultsTest.cs" />
     <Compile Include="WebApiTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

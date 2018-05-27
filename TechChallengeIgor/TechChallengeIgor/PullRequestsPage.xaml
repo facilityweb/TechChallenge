@@ -6,6 +6,10 @@
     <ContentPage.Content>
         <StackLayout>
             <views:LoadingErrorView  />
+            <StackLayout Orientation="Horizontal" IsVisible="{Binding LayoutIsVisible}">
+                <Label Text="{Binding OpeningText}" x:Name="OpeningText"/>
+                <Label Text="{Binding ClosedText}" TextColor="Black"/>
+            </StackLayout>
             <ScrollView VerticalOptions="FillAndExpand" IsVisible="{Binding LayoutIsVisible}" >
                 <ListView x:Name="lstView" ItemsSource="{Binding ItensList}" 
                           HasUnevenRows="True" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TechChallengeIgor.Domain
 {
@@ -6,7 +7,7 @@ namespace TechChallengeIgor.Domain
     {
         public int total_count { get; set; }
         public bool incomplete_results { get; set; }
-        public HubItem[] items { get; set; }
+        public IList<HubItem> items { get; set; }
     }
 
     public class HubItem
@@ -51,7 +52,7 @@ namespace TechChallengeIgor.Domain
         public string downloads_url { get; set; }
         public string issues_url { get; set; }
         public string pulls_url { get; set; }
-        public string pulls_formated_url { get { return this.pulls_url.Replace("{/number}", ""); } }
+        public string pulls_formated_url { get { return this.pulls_url.Replace("{/number}", "")+ "?per_page=1000"; } }
         public string milestones_url { get; set; }
         public string notifications_url { get; set; }
         public string labels_url { get; set; }

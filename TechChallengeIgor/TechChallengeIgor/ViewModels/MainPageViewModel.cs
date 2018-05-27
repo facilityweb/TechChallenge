@@ -74,7 +74,7 @@ namespace TechChallengeIgor.ViewModels
                 LoadingOff();
             }
         }
-        internal void SearchItens(string newTextValue)
+        public void SearchItens(string newTextValue)
         {
             searchValue = newTextValue;
             if (string.IsNullOrWhiteSpace(newTextValue))
