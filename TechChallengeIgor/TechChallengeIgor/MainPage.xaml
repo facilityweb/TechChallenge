@@ -2,11 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TechChallengeIgor"
-             x:Class="TechChallengeIgor.MainPage">
-
+             x:Class="TechChallengeIgor.MainPage"
+             xmlns:views="clr-namespace:TechChallengeIgor.Custom">
     <StackLayout>
-        <ScrollView VerticalOptions="FillAndExpand" >
+        <views:LoadingErrorView  />
+        <SearchBar  IsVisible="{Binding LayoutIsVisible}" x:Name="srchBarItens"/>
+        <ScrollView VerticalOptions="FillAndExpand" IsVisible="{Binding LayoutIsVisible}">
             <ListView x:Name="lstView" ItemsSource="{Binding ItensList}" 
+                        CachingStrategy="RecycleElement"
                           HasUnevenRows="True" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
             </ListView>
         </ScrollView>

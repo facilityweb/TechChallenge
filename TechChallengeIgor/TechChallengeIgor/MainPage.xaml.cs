@@ -22,8 +22,25 @@ namespace TechChallengeIgor
             viewModel = AppContainer.Container.Resolve<MainPageViewModel>();
             viewModel.TryAgainCommand = new Command(async () => await viewModel.GetItensAsync());
             lstView.ItemTemplate = new DataTemplate(() => new RepositoriesViewCell());
+            lstView.ItemSelected += LstView_ItemSelected;
+            srchBarItens.TextChanged += SrchBarItens_TextChanged;
             this.BindingContext = viewModel;
         }
+
+        private void SrchBarItens_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            lstView.BeginRefresh();
+
+            viewModel.SearchItens(e.NewTextValue);
+
+            lstView.EndRefresh();
+        }
+
+        private void LstView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Navigation.PushAsync(new PullRequestsPage(viewModel.SelectedItem));
+        }
+
         protected override async void OnAppearing()
         {
             base.OnAppearing();

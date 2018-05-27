@@ -53,6 +53,7 @@ namespace TechChallengeIgor.ViewModels
         }
         public void LoadingOn()
         {
+            this.IsError = false;
             this.IsLoading = true;
         }
         public void LoadingOff()

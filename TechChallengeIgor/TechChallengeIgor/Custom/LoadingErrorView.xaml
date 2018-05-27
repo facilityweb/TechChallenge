@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechChallengeIgor.Custom.LoadingErrorView">
+    <ContentView.Content>
+        <AbsoluteLayout VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.5, 0.5"
+                               AbsoluteLayout.LayoutFlags="All">
+                <StackLayout  IsVisible="{Binding IsLoading}" VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator IsEnabled="{Binding IsLoading}" IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}" Color="Black"/>
+                    <Label Text="Loading.." HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" TextColor="Black"/>
+                </StackLayout>
+                <StackLayout IsVisible="{Binding IsError}" VerticalOptions="CenterAndExpand">
+                    <Label Text="{Binding ErrorMessage}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" TextColor="Black"/>
+                    <Button Style="{StaticResource btn-primary}" Command="{Binding TryAgainCommand}" Text="TRY AGAIN"/>
+                </StackLayout>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentView.Content>
+</ContentView>

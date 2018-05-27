@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechChallengeIgor.VIewCells.PullRequestsViewCell">
+  <ViewCell.View>
+        <Grid RowSpacing="0" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackLayout Orientation="Vertical" HorizontalOptions="Start" Grid.Column="0" Grid.Row="1">
+                <Label Text="{Binding title}" FontSize="Medium" TextColor="Blue" HorizontalOptions="StartAndExpand"/>
+                <Label Text="{Binding head.label}" FontSize="Small" TextColor="Gray" HorizontalOptions="StartAndExpand"/>
+                <StackLayout Orientation="Horizontal">
+                    <Image  Source="{Binding user.avatar_url}" HorizontalOptions="Start" HeightRequest="30" WidthRequest="30"/>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="{Binding user.login}" FontSize="Small" TextColor="Blue" HorizontalOptions="Start" VerticalTextAlignment="Start"/>
+                        <Label Text="{Binding formated_created_date}" FontSize="Small" TextColor="Gray" HorizontalOptions="Start" VerticalTextAlignment="Start"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ViewCell.View>
+</ViewCell>

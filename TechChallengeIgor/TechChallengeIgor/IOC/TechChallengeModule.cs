@@ -13,6 +13,8 @@ namespace TechChallengeIgor.IOC
             builder.RegisterType<GitHubDomainService>().As<IGitHubDomainService>().InstancePerDependency();
             builder.RegisterModule<InfraModule>();
             builder.RegisterType<MainPageViewModel>().InstancePerDependency();
+            builder.RegisterType<PullRequestsPageViewModel>().InstancePerDependency();
+            builder.RegisterType<PullRequestDetailPageViewModel>().InstancePerDependency();            
             base.Load(builder);
         }
     }

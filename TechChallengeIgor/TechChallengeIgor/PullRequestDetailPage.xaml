@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechChallengeIgor.PullRequestDetailPage"
+             xmlns:views="clr-namespace:TechChallengeIgor.Custom">
+    <ContentPage.Content>
+        <ScrollView >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <views:LoadingErrorView  Grid.Row="0"/>
+                <WebView Grid.Row="0" x:Name="webViewDetail"  Source="{Binding DetailHtml}" />
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

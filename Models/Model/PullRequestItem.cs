@@ -17,6 +17,7 @@ namespace TechChallengeIgor.Domain
         public User user { get; set; }
         public string body { get; set; }
         public DateTime created_at { get; set; }
+        public string formated_created_date { get { return created_at.ToString("dd/MM/yyyy"); } }
         public DateTime updated_at { get; set; }
         public object closed_at { get; set; }
         public object merged_at { get; set; }
