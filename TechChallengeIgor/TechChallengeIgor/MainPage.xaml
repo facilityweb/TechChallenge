@@ -5,9 +5,9 @@
              x:Class="TechChallengeIgor.MainPage">
 
     <StackLayout>
-        <ScrollView MinimumHeightRequest="150">
+        <ScrollView VerticalOptions="FillAndExpand" >
             <ListView x:Name="lstView" ItemsSource="{Binding ItensList}" 
-                          HasUnevenRows="True" SelectedItem="{Binding LancamentoSelecionado, Mode=TwoWay}">
+                          HasUnevenRows="True" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
             </ListView>
         </ScrollView>
     </StackLayout>

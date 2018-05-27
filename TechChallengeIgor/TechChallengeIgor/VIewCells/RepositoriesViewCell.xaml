@@ -3,19 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TechChallengeIgor.VIewCells.RepositoriesViewCell">
     <ViewCell.View>
-        <StackLayout Orientation="Horizontal">
-            <StackLayout Orientation="Vertical">
-                <Label Text="Repository Name" FontSize="Medium" TextColor="Blue"/>
-                <Label Text="odas estas questões, devidamente ponderadas, levantam dúvidas 
-                       sobre se a expansão dos mercados mundiais nos obriga à análise do 
-                       remanejamento dos quadros funcionais." FontSize="Small" TextColor="Gray"/>
-                <Label x:Name="lblQuantity" Text="*562 *48" />
+        <Grid RowSpacing="0" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="*"/>
+                <ColumnDefinition  Width="150"/>
+            </Grid.ColumnDefinitions>
+            <StackLayout Orientation="Vertical" HorizontalOptions="Start" Grid.Column="0" Grid.Row="1">
+                <Label Text="{Binding name}" FontSize="Medium" TextColor="Blue" HorizontalOptions="StartAndExpand"/>
+                <Label Text="{Binding description}" FontSize="Small" TextColor="Gray" HorizontalOptions="StartAndExpand"/>
             </StackLayout>
-            <StackLayout Orientation="Vertical">
-                <Image Source="http://beritnegociosimobiliarios.com.br/globals/images/empty-user.png"/>
-                <Label Text="UserNAme" FontSize="Small" TextColor="Blue"/>
-                <Label Text="Name lastName" TextColor="Gray" />
+            <StackLayout Orientation="Vertical" HorizontalOptions="End" Grid.Column="1" Grid.Row="1">
+                 <Image  Source="{Binding owner.avatar_url}" HorizontalOptions="CenterAndExpand" HeightRequest="30" WidthRequest="30"/>
+                <Label Text="{Binding owner.login}" HorizontalOptions="CenterAndExpand" FontSize="Small" TextColor="Blue"/>
             </StackLayout>
-        </StackLayout>
+            <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
+                <Image Source="http://forked.yannick.io/images/logo.png" HeightRequest="10" WidthRequest="10"/>
+                <Label x:Name="lblForksQuantity" Text="{Binding forks}" HorizontalOptions="Start"/>
+                <Label Text="*" HorizontalOptions="Start"/>
+                <Label x:Name="lblWatchersQuantity" Text="{Binding watchers}" HorizontalOptions="Start"/>
+                <Label Text="{Binding full_name}" HorizontalOptions="EndAndExpand" TextColor="Gray" />
+            </StackLayout>
+        </Grid>
     </ViewCell.View>
 </ViewCell>

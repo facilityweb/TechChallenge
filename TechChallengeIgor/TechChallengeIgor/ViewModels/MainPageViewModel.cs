@@ -23,6 +23,7 @@ namespace TechChallengeIgor.ViewModels
                 }
             }
         }
+        public HubItem SelectedItem { get; set; }
         public override ICommand TryAgainCommand { get; set; }
         private readonly IGitHubDomainService _gitHubDomainService;
         public MainPageViewModel(IGitHubDomainService gitHubDomainService)
@@ -43,7 +44,7 @@ namespace TechChallengeIgor.ViewModels
                 this.ErrorOcurred(SystemInfra.NoConectivityErrorMessage);
                 LoadingOff();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 this.ErrorOcurred();
                 LoadingOff();

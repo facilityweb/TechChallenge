@@ -11,7 +11,10 @@ namespace TechChallengeIgor
         {
             InitializeComponent();
             AppContainer.Container = setup.CreateContainer();
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage())
+            {
+                BarBackgroundColor = Color.FromHex("#89c064")
+            };
         }
 
         protected override void OnStart()

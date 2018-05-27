@@ -9,7 +9,8 @@ namespace TechChallengeIgor.VIewCells
 		public RepositoriesViewCell ()
 		{
 			InitializeComponent ();
-            lblQuantity.TextColor = Color.FromHex("#e19a17");           
+            lblForksQuantity.TextColor = Color.FromHex("#e19a17");
+            lblWatchersQuantity.TextColor = Color.FromHex("#e19a17");
         }
 	}
 }
